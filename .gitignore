@@ -1,0 +1,35 @@
+# Environment & secrets
+.env
+.env.*
+*.env
+
+# Text/info files (project-internal)
+*.txt
+
+# Claude Code
+.claude/
+CLAUDE.md
+
+# Node dependencies & build outputs
+node_modules/
+dist/
+build/
+.vite/
+
+# Logs
+*.log
+npm-debug.log*
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Python / Django (if added later)
+__pycache__/
+*.pyc
+*.pyo
+db.sqlite3
