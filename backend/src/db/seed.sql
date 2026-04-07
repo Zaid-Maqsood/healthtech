@@ -4,7 +4,7 @@
 --
 -- Passwords: all users have password 'password123'
 -- Pre-computed bcrypt hash (cost 10):
---   $2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim
+--   $2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa
 --
 -- Run schema.sql first before running this file.
 -- ============================================================
@@ -26,12 +26,12 @@ ALTER SEQUENCE health.appointments_id_seq RESTART WITH 1;
 -- 1 admin, 2 doctors, 3 patients
 -- ============================================================
 INSERT INTO health.users (name, email, password_hash, role) VALUES
-    ('Admin User',      'admin@clinicflow.com',   '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim', 'admin'),
-    ('Dr. Sarah Chen',  'sarah.chen@clinic.com',  '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim', 'doctor'),
-    ('Dr. James Okafor','james.okafor@clinic.com','$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim', 'doctor'),
-    ('Alice Morgan',    'alice@example.com',      '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim', 'patient'),
-    ('Bob Williams',    'bob@example.com',        '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim', 'patient'),
-    ('Carol Davis',     'carol@example.com',      '$2a$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uHwHQAHim', 'patient');
+    ('Admin User',      'admin@clinicflow.com',   '$2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa', 'admin'),
+    ('Dr. Sarah Chen',  'sarah.chen@clinic.com',  '$2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa', 'doctor'),
+    ('Dr. James Okafor','james.okafor@clinic.com','$2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa', 'doctor'),
+    ('Alice Morgan',    'alice@example.com',      '$2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa', 'patient'),
+    ('Bob Williams',    'bob@example.com',        '$2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa', 'patient'),
+    ('Carol Davis',     'carol@example.com',      '$2a$10$P.8jYh.YpVpCy2lG0vEFd.VKt66xW32dRXCrEBVKwQrA46KGJBDRa', 'patient');
 
 -- ============================================================
 -- Doctor Profiles
