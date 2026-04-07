@@ -30,20 +30,6 @@ app.get('/', (req, res) => {
   res.json({ message: 'ClinicFlow API is running' });
 });
 
-// TEMPORARY: one-time seed endpoint — remove after use
-app.get('/api/run-seed', async (req, res) => {
-  const fs = require('fs');
-  const path = require('path');
-  const pool = require('./src/config/db');
-  try {
-    const sql = fs.readFileSync(path.join(__dirname, 'src/db/seed.sql'), 'utf8');
-    await pool.query(sql);
-    res.json({ message: 'Seeded successfully' });
-  } catch (err) {
-    res.status(500).json({ error: err.message });
-  }
-});
-
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ error: 'Route not found' });
