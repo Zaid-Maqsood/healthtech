@@ -1,14 +1,13 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// Local: postgresql://postgres:zaid@localhost:5432/grayphite
-// Production: Digital Ocean managed Postgres (SSL required)
-const isProduction = process.env.NODE_ENV === 'production' ||
-  (process.env.DATABASE_URL && process.env.DATABASE_URL.includes('ondigitalocean.com'));
+const isDO = process.env.DATABASE_URL && process.env.DATABASE_URL.includes('ondigitalocean.com');
 
+// Local: postgresql://postgres:zaid@localhost:5432/grayphite
+// Production: Digital Ocean managed Postgres (sslmode=require, self-signed CA)
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  ...(isProduction && { ssl: { rejectUnauthorized: false } }),
+  ...(isDO && { ssl: { rejectUnauthorized: false } }),
 });
 
 module.exports = pool;
