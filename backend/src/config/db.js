@@ -1,11 +1,13 @@
 const { Pool } = require('pg');
 require('dotenv').config();
 
-// Local: postgresql://postgres:zaid@localhost:5432/grayphite
-// Production: Digital Ocean managed Postgres (sslmode=require, self-signed CA)
+// Strip sslmode from the URL so pg doesn't override our ssl config below.
+// DO auto-injects sslmode=require which pg v8+ treats as verify-full (cert check fails).
+const connectionString = (process.env.DATABASE_URL || '').replace(/[?&]sslmode=[^&]*/g, '').replace(/\?$/, '');
+
 const pool = new Pool({
-  connectionString: process.env.DATABASE_URL,
-  ssl: { rejectUnauthorized: false },
+  connectionString: connectionString || process.env.DATABASE_URL,
+  ssl: connectionString.includes('ondigitalocean.com') ? { rejectUnauthorized: false } : false,
 });
 
 module.exports = pool;
